@@ -1,0 +1,40 @@
+plugins:
+  - react
+extends:
+  - airbnb
+parser: babel-eslint
+parserOptions:
+    ecmaVersion: 7
+    sourceType: module
+    ecmaFeatures:
+      experimentalObjectRestSpread: true
+      jsx: true
+env:
+    es6: true
+    browser: true
+    node: true
+    jest: true
+rules:
+  semi: 2
+  arrow-parens: 0
+  no-nested-ternary: 0
+  no-plusplus: 0
+  no-return-assign: 0
+  func-names: 0
+  comma-dangle:
+    - 2
+    - functions: ignore
+      objects: always-multiline
+      arrays: always-multiline
+  no-unused-expressions:
+    - 2
+    - allowShortCircuit: true
+      allowTernary: true
+  no-underscore-dangle: 0
+  react/prop-types: 1
+  react/jsx-filename-extension: 0
+  react/require-default-props: 0
+  react/forbid-prop-types: 0
+  react/no-array-index-key: 0
+  jsx-a11y/no-static-element-interactions: 0
+  import/no-named-as-default: 0
