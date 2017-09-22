@@ -21,13 +21,13 @@ class AddContact extends Component {
   render() {
     return (
       <div className="addNewContact">
-        <input placeholder="enter id" ref={(input) => {this.idInput = input}}/>
-        <input placeholder="enter name" ref={(input) => {this.nameInput = input}} />
-        <input placeholder="enter image url" ref={(input) => {this.urlInput = input}}/>
-        <input placeholder="enter image url" ref={(input) => {this.phoneInput = input}}/>
+        <input placeholder="enter id" ref={(input) => { this.idInput = input; }} />
+        <input placeholder="enter name" ref={(input) => { this.nameInput = input; }} />
+        <input placeholder="enter image url" ref={(input) => { this.urlInput = input; }} />
+        <input placeholder="enter image url" ref={(input) => { this.phoneInput = input; }} />
         <button onClick={this.addNewPerson}>Add</button>
       </div>
-    )
+    );
   }
 }
 function mapStateToProps(state) {

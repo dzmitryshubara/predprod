@@ -6,6 +6,7 @@ export function filterList(searchValue) {
     searchValue
   };
 }
+
 export function deletePerson(id) {
   return {
     type: DELETE_PERSON,

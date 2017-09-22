@@ -29,7 +29,7 @@ class Single extends Component {
         <input defaultValue={res[0].name} ref={(input) => { this.nameInput = input; }} />
         <input defaultValue={res[0].imgUrl} ref={(input) => { this.urlInput = input; }} />
         <input defaultValue={res[0].phoneNumber} ref={(input) => { this.phoneInput = input; }} />
-        <button onClick= {this.handleChange.bind(this)}>Submit</button>
+        <button onClick = {this.handleChange.bind(this)}>Submit</button>
       </div>
     )
   }
