@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {Link} from 'react-router';
+import PropTypes from 'prop-types';
 
 import { filterList, deletePerson } from '../actions';
 
@@ -11,7 +12,6 @@ class App extends Component {
     this.searchName = this.searchName.bind(this);
   }
   searchName() {
-    console.log(this.searchInput.value);
     this.props.filterList(this.searchInput.value);
   }
   delete(id) {
@@ -31,27 +31,35 @@ class App extends Component {
           <button>add contact</button>
         </Link>
         <div className="grid">
-        {this.props.person.map( (elem) => {
-          return (
-            <ul className="person" key={elem.id}>
-              <li className="fio">First name: {elem.name}</li>
-              <li className="phoneNumber">Phone number: {elem.phoneNumber}</li>
-              <img className="personPicture" src={elem.imgUrl} />
-              <Link to={`/contact/${elem.id}`}>
-                <button>change</button>
-              </Link>
-              <button onClick={this.delete.bind(this, elem.id)}>delete</button>
-            </ul>
-          );
-        })
-        }
+          {this.props.person.map( (elem) => {
+            return (
+              <ul className="person" key={elem.id}>
+                <li className="fio">First name: {elem.name}</li>
+                <li className="phoneNumber">Phone number: {elem.phoneNumber}</li>
+                <img className="personPicture" src={elem.imgUrl} alt=""/>
+                <Link to={`/contact/${elem.id}`}>
+                  <button>change</button>
+                </Link>
+                <button onClick={this.delete.bind(this, elem.id)}>delete</button>
+              </ul>
+            );
+          })
+          }
+        </div>
       </div>
-      </div>
-    )
+    );
   }
 }
+App.propTypes = {
+  person: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string,
+    phoneNumber: PropTypes.string,
+    imgUrl: PropTypes.string
+  })),
+};
 function mapStateToProps(state) {
-  return { person: state.person.filter( per => per.name.includes(state.filter)) };
+  return { person: state.person.filter(per => per.name.includes(state.filter)) };
 }
 
 function mapDispatchToProps(dispatch) {

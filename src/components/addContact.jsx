@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import PropTypes from 'prop-types';
 
 import { addPerson } from '../actions';
 
@@ -30,6 +31,7 @@ class AddContact extends Component {
     );
   }
 }
+
 function mapStateToProps(state) {
   return { results: state.data };
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import PropTypes from 'prop-types';
 
 import { changePerson } from '../actions';
 
@@ -31,9 +32,18 @@ class Single extends Component {
         <input defaultValue={res[0].phoneNumber} ref={(input) => { this.phoneInput = input; }} />
         <button onClick = {this.handleChange.bind(this)}>Submit</button>
       </div>
-    )
+    );
   }
 }
+
+Single.propTypes = {
+  person: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string,
+    phoneNumber: PropTypes.string,
+    imgUrl: PropTypes.string
+  })),
+};
 
 function mapStateToProps(state) {
   return { person: state.person };
