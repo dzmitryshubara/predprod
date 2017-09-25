@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import { changePerson } from '../actions';
@@ -12,25 +12,36 @@ class Single extends Component {
       name: this.nameInput.value,
       imgUrl: this.urlInput.value,
       phoneNumber: this.phoneInput.value
-    }
+    };
     this.props.changePerson(data);
   }
   render() {
     const personData = this.props.person;
-    const pathArray = window.location.pathname.split('/');
-    const urlId = parseInt(pathArray[2]);
+    const personId = parseInt(this.props.params.elemId);
     const res = personData.filter(elem => {
-      if (elem.id === urlId) {
+      if (elem.id === personId) {
         return elem;
       }
     });
     return (
       <div>
-        <input defaultValue={res[0].id} ref={(input) => { this.idInput = input; }} />
-        <input defaultValue={res[0].name} ref={(input) => { this.nameInput = input; }} />
-        <input defaultValue={res[0].imgUrl} ref={(input) => { this.urlInput = input; }} />
-        <input defaultValue={res[0].phoneNumber} ref={(input) => { this.phoneInput = input; }} />
-        <button onClick = {this.handleChange.bind(this)}>Submit</button>
+        <input
+          defaultValue={res[0].id}
+          ref={(input) => { this.idInput = input; }} 
+        />
+        <input
+          defaultValue={res[0].name}
+          ref={(input) => { this.nameInput = input; }} 
+        />
+        <input
+          defaultValue={res[0].imgUrl}
+          ref={(input) => { this.urlInput = input; }}
+        />
+        <input
+          defaultValue={res[0].phoneNumber}
+          ref={(input) => { this.phoneInput = input; }}
+        />
+        <button onClick={this.handleChange.bind(this)}>Submit</button>
       </div>
     );
   }

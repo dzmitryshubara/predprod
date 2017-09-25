@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import {Link} from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
 import { filterList, deletePerson } from '../actions';
@@ -31,7 +31,7 @@ class App extends Component {
           <button>add contact</button>
         </Link>
         <div className="grid">
-          {this.props.person.map( (elem) => {
+          {this.props.person.map( elem => {
             return (
               <ul className="person" key={elem.id}>
                 <li className="fio">First name: {elem.name}</li>
