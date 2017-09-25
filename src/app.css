@@ -1,3 +1,43 @@
-body {
-  background: red;
+#root {
+  width: 1200px;
+  margin: 0 auto;
+}
+.app {
+  text-align: center;
+}
+.search-field {
+  width: 400px;
+  height: 30px;
+  font-size: 20px;
+}
+.app-title {
+  font-size: 35px;
+}
+.person {
+  width: 300px;
+  margin: 0 auto;
+  list-style-type: none;
+  font-size: 20px;
+  padding: 0;
+  float: left;
+  margin-left: 82px;
+  margin-top: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.personPicture {
+  width: 200px;
+  height: 200px;
+}
+button {
+  background: blue;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  min-width: 100px;
+  cursor: pointer;
+}
+.person > a {
+  display: block;
+  margin: 5px 0 5px 0;
 }
