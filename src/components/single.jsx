@@ -18,11 +18,7 @@ class Single extends Component {
   render() {
     const personData = this.props.person;
     const personId = parseInt(this.props.params.elemId);
-    const res = personData.filter(elem => {
-      if (elem.id === personId) {
-        return elem;
-      }
-    });
+    const res = personData.filter(elem => elem.id === personId);
     return (
       <div>
         <input
